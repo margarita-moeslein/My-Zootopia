@@ -43,23 +43,29 @@ def generate_html(file_path, animals_data):
         # Create list item for each animal
         output += '<li class="cards__item">\n'
 
-        # Add name if it exists
+        # Add title with animal name
         if 'name' in animal_data:
-            output += f"Name: {animal_data['name']}<br/>\n"
+            output += f'<div class="card__title">{animal_data["name"]}</div>\n'
+
+        # Start paragraph for animal details
+        output += '  <p class="card__text">\n'
 
         # Add diet if it exists
         if 'characteristics' in animal_data and 'diet' in animal_data['characteristics']:
-            output += f"Diet: {animal_data['characteristics']['diet']}<br/>\n"
+            output += f'<strong>Diet:</strong> {animal_data["characteristics"]["diet"]}<br/>\n'
 
         # Add location if it exists
         if 'locations' in animal_data and len(animal_data['locations']) > 0:
-            output += f"Location: {animal_data['locations'][0]}<br/>\n"
+            output += f'<strong>Location:</strong> {animal_data["locations"][0]}<br/>\n'
 
         # Add type if it exists
         if 'characteristics' in animal_data and 'type' in animal_data['characteristics']:
-            output += f"Type: {animal_data['characteristics']['type']}<br/>\n"
+            output += f'      <strong>Type:</strong> {animal_data["characteristics"]["type"]}<br/>\n'
 
-        # Close list item for each animal
+        # Close paragraph
+        output += '</p>\n'
+
+        # Close list item
         output += '</li>\n'
 
 
