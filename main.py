@@ -40,30 +40,28 @@ def generate_html(file_path, animals_data):
 
     output = ''  # define an empty string
     for animal_data in animals_data:
-        # For each animal, create entries with proper newlines
-        animal_output = ""
+        # create list item for an animal
+        output += '<li class="cards__item">\n'
 
         # Add name if it exists
         if 'name' in animal_data:
-            animal_output += f"Name: {animal_data['name']}\n"
+            output += f"Name: {animal_data['name']}<br/>\n"
 
         # Add diet if it exists
         if 'characteristics' in animal_data and 'diet' in animal_data['characteristics']:
-            animal_output += f"Diet: {animal_data['characteristics']['diet']}\n"
+            output += f"Diet: {animal_data['characteristics']['diet']}<br/>\n"
 
         # Add location if it exists
         if 'locations' in animal_data and len(animal_data['locations']) > 0:
-            animal_output += f"Location: {animal_data['locations'][0]}\n"
+            output += f"Location: {animal_data['locations'][0]}<br/>\n"
 
         # Add type if it exists
         if 'characteristics' in animal_data and 'type' in animal_data['characteristics']:
-            animal_output += f"Type: {animal_data['characteristics']['type']}\n"
+            output += f"Type: {animal_data['characteristics']['type']}<br/>\n"
 
-        # Add empty line between animals
-        animal_output += "\n"
+        # Close list item for an animal
+        output += '</li>\n'
 
-        # Add this animal's info to the overall output
-        output += animal_output
 
     # Replace the placeholder with our generated content
     html_content = template_content.replace(REPLACED_TEXT, output)
@@ -87,8 +85,6 @@ def main():
         generate_html('animals.html', animals_data)
     except Exception as e:
         print(f"Error processing file: {e}")
-
-
 
 
 if __name__ == "__main__":
