@@ -40,7 +40,7 @@ def generate_html(file_path, animals_data):
 
     output = ''  # define an empty string
     for animal_data in animals_data:
-        # create list item for an animal
+        # Create list item for each animal
         output += '<li class="cards__item">\n'
 
         # Add name if it exists
@@ -59,7 +59,7 @@ def generate_html(file_path, animals_data):
         if 'characteristics' in animal_data and 'type' in animal_data['characteristics']:
             output += f"Type: {animal_data['characteristics']['type']}<br/>\n"
 
-        # Close list item for an animal
+        # Close list item for each animal
         output += '</li>\n'
 
 
@@ -75,7 +75,6 @@ def generate_html(file_path, animals_data):
     html_content = template_content.replace(REPLACED_TEXT, output)
     with open(file_path, 'w') as fileobj:
         fileobj.write(html_content)
-
 
 
 def main():
