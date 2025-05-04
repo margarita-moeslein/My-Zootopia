@@ -9,7 +9,7 @@ REPLACED_TEXT = "__REPLACE_ANIMALS_INFO__"
 
 
 def serialize_animal(animal_data):
-    """Serialize a single animal object to HTML format"""
+    """Convert a single animal object into HTML format"""
     output = '<li class="cards__item">\n'
 
     # add title with animal name
