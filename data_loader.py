@@ -1,5 +1,5 @@
 """
-Module for loading data from various sources
+Module for loading data from json file
 """
 
 import json
